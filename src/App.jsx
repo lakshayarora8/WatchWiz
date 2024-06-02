@@ -1,9 +1,21 @@
 import { useState,useEffect } from 'react'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import {fetchDataFromApi} from "./utils/api"
 import { Logger } from 'sass'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfiguration } from './store/homeslice'
+
+
+import Header from "./components/header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from './pages/home/home'
+import Details from "./pages/details/Details"
+import SearchResults from "./pages/searchResult/SearchResult"
+import Explore from "./pages/explore/Explore"
+import pageNotFound from "./pages/404/pageNotFound"
+
+
 
 
 function App() {
@@ -27,9 +39,23 @@ function App() {
 
   
 
-  return <div className="App"> App
-  {url?.total_pages}
-  </div>
+  return (
+
+     <BrowserRouter>
+        {/* <Header /> */}
+        <Routes>
+          <Route path="/" element={<Home/>}   />
+          <Route path="/:mediaType/:id" element={<Details/>} />
+          <Route path="/search/:query" element={<SearchResults/> } />
+          <Route path="/explore/:mediatype" element={<Explore/>} />
+          <Route path="*" element={<pageNotFound/>} />
+
+
+        </Routes>
+        {/* <Footer/> */}
+     </BrowserRouter>
+
+  )
 } 
 
 export default App
