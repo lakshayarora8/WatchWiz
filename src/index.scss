@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
@@ -10,15 +10,21 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --black: #04152d;
-  --black2: #041226;
-  --black3: #020c1b;
-  --black-lighter: #1c4b91;
-  --black-light: #173d77;
-  --pink: #da2f68;
-  --orange: #f89e00;
-  --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+  --black: #141414; /* Netflix dark black */
+  --black2: #0b0b0b; /* Darker shade of black */
+  --black3: #181818; /* Lighter shade of black */
+  --black-lighter: #333333; /* Light black */
+  --black-light: #282828; /* Medium black */
+  --blue-dark: #1a1a2e; /* Dark blue */
+  --blue-light: #16213e; /* Light blue */
+  --pink: #e50914; /* Netflix red */
+  --orange: #ff4500; /* Optional, another Netflix accent color */
+  --gradient: linear-gradient(180deg, #000000, #FF0000); /* Black to red gradient */
+  /* Gradient from dark blue to light blue */
+   
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 * {
   margin: 0;
@@ -28,6 +34,7 @@
 
 body {
   background-color: var(--black);
+  font-family: 'Roboto', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -37,7 +44,7 @@ body {
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: #0a2955;
+  background-color: var(--black-light); /* Changed to a variable for consistency */
   &::after {
       position: absolute;
       top: 0;
@@ -47,10 +54,10 @@ body {
       transform: translateX(-100%);
       background-image: linear-gradient(
           90deg,
-          rgba(#193763, 0) 0,
-          rgba(#193763, 0.2) 20%,
-          rgba(#193763, 0.5) 60%,
-          rgba(#193763, 0)
+          rgba(24, 24, 24, 0) 0, /* Use rgba equivalent of --black3 */
+          rgba(24, 24, 24, 0.2) 20%,
+          rgba(24, 24, 24, 0.5) 60%,
+          rgba(24, 24, 24, 0)
       );
       animation: shimmer 2s infinite;
       content: "";
@@ -61,4 +68,27 @@ body {
           transform: translateX(100%);
       }
   }
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border-radius: 50px; /* Rounded shape */
+  border: 1px solid var(--black-lighter);
+  background-color: var(--black3);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  &:focus {
+      background-color: var(--black2);
+      box-shadow: 0 0 10px var(--blue-light);
+  }
+}
+
+.search-bar::placeholder {
+  color: var(--black-lighter);
 }

@@ -4,10 +4,10 @@ import "./style.scss";
 
 import useFetch from "../../hooks/useFetch";
 import Cast from "./cast/Cast";
-import VideosSection from "./videosSection/VideosSection";
 import Similar from "./carousels/Similar";
 import Recommendation from "./carousels/Recommendation";
-import DetailsBanner from "./detailsbanner/DetailsBanner";
+import VideosSection from "./videosSection/VideoSection";
+import DetailsBanner from "./detailsBanner/DetailsBanner"
 
 const Details = () => {
     const { mediaType, id } = useParams();

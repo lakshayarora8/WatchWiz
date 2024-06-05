@@ -30,11 +30,12 @@
     }
     .opacity-layer {
         width: 100%;
-        height: 250px;
+        height: 100px;
         background: linear-gradient(
             180deg,
-            rgba(4, 21, 45, 0) 0%,
-            #04152d 79.17%
+          rgba(45, 2, 2, 0) 0%,
+            /* Adjusted black to be slightly lighter */
+            var(--pink) 99.17% /* Changed to Netflix red */
         );
         position: absolute;
         bottom: 0;
